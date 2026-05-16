@@ -110,9 +110,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-function RootComponent() {
-  const { queryClient } = Route.useRouteContext();
-
 function AuthSync() {
   const router = useRouter();
   const qc = useQueryClient();
