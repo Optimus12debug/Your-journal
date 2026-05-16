@@ -14,6 +14,7 @@ import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppDashboardRouteImport } from './routes/_app/dashboard'
 import { Route as AppTradesIndexRouteImport } from './routes/_app/trades/index'
+import { Route as AppTradesNewRouteImport } from './routes/_app/trades/new'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -39,17 +40,24 @@ const AppTradesIndexRoute = AppTradesIndexRouteImport.update({
   path: '/trades/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppTradesNewRoute = AppTradesNewRouteImport.update({
+  id: '/trades/new',
+  path: '/trades/new',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard': typeof AppDashboardRoute
+  '/trades/new': typeof AppTradesNewRoute
   '/trades/': typeof AppTradesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard': typeof AppDashboardRoute
+  '/trades/new': typeof AppTradesNewRoute
   '/trades': typeof AppTradesIndexRoute
 }
 export interface FileRoutesById {
@@ -58,19 +66,21 @@ export interface FileRoutesById {
   '/_app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
   '/_app/dashboard': typeof AppDashboardRoute
+  '/_app/trades/new': typeof AppTradesNewRoute
   '/_app/trades/': typeof AppTradesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard' | '/trades/'
+  fullPaths: '/' | '/login' | '/dashboard' | '/trades/new' | '/trades/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard' | '/trades'
+  to: '/' | '/login' | '/dashboard' | '/trades/new' | '/trades'
   id:
     | '__root__'
     | '/'
     | '/_app'
     | '/login'
     | '/_app/dashboard'
+    | '/_app/trades/new'
     | '/_app/trades/'
   fileRoutesById: FileRoutesById
 }
@@ -117,16 +127,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppTradesIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/trades/new': {
+      id: '/_app/trades/new'
+      path: '/trades/new'
+      fullPath: '/trades/new'
+      preLoaderRoute: typeof AppTradesNewRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppDashboardRoute: typeof AppDashboardRoute
+  AppTradesNewRoute: typeof AppTradesNewRoute
   AppTradesIndexRoute: typeof AppTradesIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppDashboardRoute: AppDashboardRoute,
+  AppTradesNewRoute: AppTradesNewRoute,
   AppTradesIndexRoute: AppTradesIndexRoute,
 }
 
