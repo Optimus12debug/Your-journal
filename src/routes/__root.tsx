@@ -81,6 +81,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Premium SMC/ICT trading journal — track setups, emotions, and performance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Smart Money Trading Journal" },
+      { name: "twitter:description", content: "Premium SMC/ICT trading journal — track setups, emotions, and performance." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4e5b6779-ee79-4ea0-b393-76e8602aba97/id-preview-d8365a77--e8703c71-356f-4aae-8080-61b71f955810.lovable.app-1778922686371.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4e5b6779-ee79-4ea0-b393-76e8602aba97/id-preview-d8365a77--e8703c71-356f-4aae-8080-61b71f955810.lovable.app-1778922686371.png" },
     ],
     links: [
       {
