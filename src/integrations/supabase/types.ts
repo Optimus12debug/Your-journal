@@ -14,7 +14,227 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      notes: {
+        Row: {
+          category: string | null
+          content: string | null
+          created_at: string
+          id: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          content?: string | null
+          created_at?: string
+          id?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          content?: string | null
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      trade_screenshots: {
+        Row: {
+          caption: string | null
+          created_at: string
+          id: string
+          kind: string | null
+          storage_path: string | null
+          trade_id: string
+          url: string
+          user_id: string
+        }
+        Insert: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          kind?: string | null
+          storage_path?: string | null
+          trade_id: string
+          url: string
+          user_id: string
+        }
+        Update: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          kind?: string | null
+          storage_path?: string | null
+          trade_id?: string
+          url?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "trade_screenshots_trade_id_fkey"
+            columns: ["trade_id"]
+            isOneToOne: false
+            referencedRelation: "trades"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      trades: {
+        Row: {
+          bias: string | null
+          confidence_level: number | null
+          created_at: string
+          direction: string
+          discipline_rating: number | null
+          emotion_after: string | null
+          emotion_before: string | null
+          emotion_during: string | null
+          entry_price: number | null
+          execution_correct: boolean | null
+          execution_notes: string | null
+          fear_level: number | null
+          fomo: boolean | null
+          id: string
+          improvements: string | null
+          journal_notes: string | null
+          lessons: string | null
+          mistakes: string | null
+          outcome: string | null
+          overtrading: boolean | null
+          pair: string
+          patience_rating: number | null
+          pnl: number | null
+          position_size: number | null
+          replay_notes: string | null
+          respected_analysis: boolean | null
+          revenge_trading: boolean | null
+          risk_percent: number | null
+          rr_ratio: number | null
+          session: string | null
+          smc_extras: Json
+          stop_loss: number | null
+          tags: string[] | null
+          take_profit: number | null
+          timeframe_analysis: Json
+          title: string
+          trade_date: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          bias?: string | null
+          confidence_level?: number | null
+          created_at?: string
+          direction: string
+          discipline_rating?: number | null
+          emotion_after?: string | null
+          emotion_before?: string | null
+          emotion_during?: string | null
+          entry_price?: number | null
+          execution_correct?: boolean | null
+          execution_notes?: string | null
+          fear_level?: number | null
+          fomo?: boolean | null
+          id?: string
+          improvements?: string | null
+          journal_notes?: string | null
+          lessons?: string | null
+          mistakes?: string | null
+          outcome?: string | null
+          overtrading?: boolean | null
+          pair: string
+          patience_rating?: number | null
+          pnl?: number | null
+          position_size?: number | null
+          replay_notes?: string | null
+          respected_analysis?: boolean | null
+          revenge_trading?: boolean | null
+          risk_percent?: number | null
+          rr_ratio?: number | null
+          session?: string | null
+          smc_extras?: Json
+          stop_loss?: number | null
+          tags?: string[] | null
+          take_profit?: number | null
+          timeframe_analysis?: Json
+          title: string
+          trade_date?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          bias?: string | null
+          confidence_level?: number | null
+          created_at?: string
+          direction?: string
+          discipline_rating?: number | null
+          emotion_after?: string | null
+          emotion_before?: string | null
+          emotion_during?: string | null
+          entry_price?: number | null
+          execution_correct?: boolean | null
+          execution_notes?: string | null
+          fear_level?: number | null
+          fomo?: boolean | null
+          id?: string
+          improvements?: string | null
+          journal_notes?: string | null
+          lessons?: string | null
+          mistakes?: string | null
+          outcome?: string | null
+          overtrading?: boolean | null
+          pair?: string
+          patience_rating?: number | null
+          pnl?: number | null
+          position_size?: number | null
+          replay_notes?: string | null
+          respected_analysis?: boolean | null
+          revenge_trading?: boolean | null
+          risk_percent?: number | null
+          rr_ratio?: number | null
+          session?: string | null
+          smc_extras?: Json
+          stop_loss?: number | null
+          tags?: string[] | null
+          take_profit?: number | null
+          timeframe_analysis?: Json
+          title?: string
+          trade_date?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
