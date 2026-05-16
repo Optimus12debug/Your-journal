@@ -123,10 +123,10 @@ function Kpi({ label, value, tone }: { label: string; value: React.ReactNode; to
     </div>
   );
 }
-function aggregate(trades: { pnl: number | null; [k: string]: unknown }[], key: (t: never) => string) {
+function aggregate<T extends { pnl: number | null }>(trades: T[], key: (t: T) => string) {
   const m = new Map<string, number>();
   for (const t of trades) {
-    const k = key(t as never);
+    const k = key(t);
     m.set(k, (m.get(k) ?? 0) + Number(t.pnl ?? 0));
   }
   return Array.from(m, ([name, pnl]) => ({ name, pnl: +pnl.toFixed(2) }));
